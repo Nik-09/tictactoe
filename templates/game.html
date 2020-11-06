@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Tictactoe</title>
+        <style>
+            table{
+                border-collapse: collapse;
+                background-color: lightgray;
+                margin-top: 120px;
+                margin-left: 575px;
+            }
+            td{
+                border: 2px solid black;
+                width: 150px;
+                height: 150px;
+                font-size: 20px;
+                text-align: center;
+            }
+            td > a{
+                font-size: 18px;
+            }
+            a{
+                text-decoration: none;
+            }
+            h1{
+                text-align: center;
+            }
+            body{
+                background-color: grey;
+                font-family: sans-serif;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <h1>Nikhil's Tictactoe Game</h1>
+        <table>
+            {% for i in range(3) %}
+                <tr>
+                    {% for j in range(3) %}
+                    <td>
+                        {% if game[i][j] %}
+                            {{ game[i][j] }}
+                        {% else %}
+                            <a href="{{ url_for('play', row=i, col=j) }}"> {{ turn }} </a>
+                        {% endif %}
+                    </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
